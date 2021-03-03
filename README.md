@@ -30,8 +30,13 @@ Next we use the pca algorithm to reduce the scaled dataframe into a three "pca d
 
 ## Using K-Means to figure out appropriate clusters
 
-In kernel 23, we plot an elbow curve that plots "inertia" from a range of 1 cluster to 11.   Looking at the curve, the inertia inflects at value 4, so we will use 4 clusters as our parameter. In kernel 25, we run the K-means model and we create the "clustered_df".  Some visual results are seen in kernels 25 and 26.   
+In kernel 23, we plot an elbow curve that plots "inertia" from a range of 1 cluster to 11.   Looking at the elbow curve,![curve](Elbow-Curve.PNG)
 
-In order to improve the visual output (particularl along the axes), we will try to scale the two columns "TotalCoinsMined" and "TotalCoinSupply" from "clustered_df". We use the min-max scaler which is different than the standardized scaler.  Once these columns are scaled, we create a "MMS_df" and concatenate it with "clustered_df".  With this new DataFrame, we create new output in kernels 33 and 34.  The values along the axes are more understandable and does not change any relationships between the data.
+the inertia inflects at value 4, so we will use 4 clusters as our parameter. In kernel 24, we run the K-means model and we create the "clustered_df".  Some visual results are seen in kernel 25 (scatter-chart:  vertical axis is Principal Component 1, the flat axes are for Principal Components 2 and 3) and kernel 26 (a partial view of first 11 currencies).   
+
+![scatter-chart](Scatter-Chart.PNG)
+![classification-table](Classification-Table.PNG)
+
+The remainder of the code creates a new DataFrame "new-clustered-df" for the purposes of creating new charts.  In order to improve the visual output (particularly along the axes) for the new charts, we scale the two columns "TotalCoinsMined" and "TotalCoinSupply" from "clustered_df". We use the min-max scaler which is different than the standardized scaler.  Once these columns are scaled, we create a "MMS_df" and concatenate it with "clustered_df" which and the concatenated result is new-clustered-df as referenced above.  The new output is in kernels 33 and 34.  The values along the axes are more understandable and does not change any relationships between the data.
 
 
